@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:19:28 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/06 13:40:03 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:39:28 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,17 @@ bool stack_sort_check(t_stack *stack)
         stack = stack->next;
     }
     return true;
+}
+
+int	stack_length(t_stack *stack)
+{
+	int x;
+
+	x = 0;
+	while (stack)//fixed???
+	{
+		x++;
+		stack = stack->next;
+	}
+	return (x);
 }

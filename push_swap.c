@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:10:00 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/06 15:10:51 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:46:16 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	push_swap(t_stack **A, t_stack **B)
 {
 	push_first_2(A, B);
-
-
-
+	push_nodes_to_b(A, B);
+	sort_three(A);
+	sort_stack_b(B);
+	push_back_to_a(A, B);
 
 
 
@@ -64,3 +65,5 @@ int main(int ac, char **av)
 	// push_swap(&A, &B);
 
 }
+
+

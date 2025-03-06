@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:10:05 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/06 15:11:23 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:45:58 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ void	pb(t_stack **a, t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 void	rra_rrb(t_stack **stack, char id);
 void	push_first_2(t_stack **a, t_stack **b);
+void	push_nodes_to_b(t_stack **a, t_stack **b);
+void	sort_three(t_stack **a);
+void	sort_stack_b(t_stack **b);
+int		stack_length(t_stack *stack);
+void	push_back_to_a(t_stack **a, t_stack **b);
+void final_adjustments(t_stack **a);
+
 
 
 
