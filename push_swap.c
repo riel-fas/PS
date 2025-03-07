@@ -62,7 +62,15 @@ int main(int ac, char **av)
 			free_args(splited);
 		return (0);
 	}
-	// push_swap(&A, &B);
+	push_swap(&A, &B);
+
+	free_stack(&A);
+    free_stack(&B);
+    if (ac == 2)
+    {
+        free_args(splited);
+    }
+    return (0);
 
 }
 

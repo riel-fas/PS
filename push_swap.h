@@ -49,7 +49,10 @@ void	sort_three(t_stack **a);
 void	sort_stack_b(t_stack **b);
 int		stack_length(t_stack *stack);
 void	push_back_to_a(t_stack **a, t_stack **b);
-void final_adjustments(t_stack **a);
+void	final_adjustments(t_stack **a);
+int		find_median(t_stack *stack);
+void	move_to_top(t_stack **stack, t_stack *target);
+
 
 
 

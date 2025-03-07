@@ -58,30 +58,20 @@ void sort_three(t_stack **a)
     }
 }
 
-void sort_stack_b(t_stack **b)
-{
-    if (!b || !*b || !(*b)->next)
-        return; // Nothing to do if stack B is empty or has only one node
-
-    t_stack *largest = find_largest(*b); // Find the largest node in stack B
-
-    // Move the largest node to the top of stack B
-    move_to_top(b, largest);
-}
 
 t_stack *find_largest(t_stack *stack)
 {
-    if (!stack)
-        return NULL;
+	if (!stack)
+	return NULL;
 
     t_stack *largest = stack;
     t_stack *current = stack;
 
     while (current)
     {
-        if (current->nbr > largest->nbr)
+		if (current->nbr > largest->nbr)
             largest = current;
-        current = current->next;
+			current = current->next;
     }
 
     return largest;
@@ -89,15 +79,15 @@ t_stack *find_largest(t_stack *stack)
 
 void move_to_top(t_stack **stack, t_stack *target)
 {
-    if (!stack || !*stack || !target)
-        return;
+	if (!stack || !*stack || !target)
+	return;
 
     // Calculate the number of rotations needed to bring the target to the top
     int moves_up = 0;
     t_stack *current = *stack;
     while (current && current != target)
     {
-        moves_up++;
+		moves_up++;
         current = current->next;
     }
 
@@ -107,14 +97,24 @@ void move_to_top(t_stack **stack, t_stack *target)
     // Move in the most efficient direction
     if (moves_up <= moves_down)
     {
-        for (int i = 0; i < moves_up; i++)
-            ra_rb(stack, '\0'); // Rotate forward
+		for (int i = 0; i < moves_up; i++)
+		ra_rb(stack, '\0'); // Rotate forward
     }
     else
     {
-        for (int i = 0; i < moves_down; i++)
-            rra_rrb(stack, '\0'); // Rotate backward
+		for (int i = 0; i < moves_down; i++)
+		rra_rrb(stack, '\0'); // Rotate backward
     }
 }
 
+void sort_stack_b(t_stack **b)
+{
+	if (!b || !*b || !(*b)->next)
+		return; // Nothing to do if stack B is empty or has only one node
+
+	t_stack *largest = find_largest(*b); // Find the largest node in stack B
+
+	// Move the largest node to the top of stack B
+	move_to_top(b, largest);
+}
 
