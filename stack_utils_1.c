@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 13:16:01 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/06 14:26:28 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/07 08:30:19 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void check_duplicates(t_stack *stack)
 		while (runner)
 		{
 			if (current->nbr == runner->nbr)
-				write(2, "Error\n", 6);
+						error_exit ();
 			runner = runner->next;
 		}
 		current = current->next;
@@ -77,7 +77,7 @@ void populate_stack_A(t_stack **A, char **av, int start_index)
 		if (nb > INT_MAX || nb < INT_MIN) // Check for integer overflow
 		{
 			free_stack(A);
-			write(2, "Error\n", 6);
+			error_exit ();
 		}
 		append_to_stack_A(A, (int)nb);
 		x++;

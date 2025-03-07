@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:10:05 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/06 16:45:58 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/07 08:25:06 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 } t_stack;
 
 
-
+void	error_exit(void);
 char	**splitv2(char *s, char c);
 long	atoi_v2(char *av);
 void	free_stack(t_stack **stack);
