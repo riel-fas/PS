@@ -59,10 +59,10 @@ SRCS =	stack_utils_1.c \
 		operations_1.c \
 		operations_2.c \
 		string_pars.c \
-		cost_based.c \
 		error_handling.c \
 		split_utils.c \
 		median_utils.c \
+		coste_based.c \
 		push_swap.c
 
 # Object files

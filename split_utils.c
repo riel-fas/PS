@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 13:41:31 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/07 13:41:32 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:59:11 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,21 @@ int count_words(char *s, char c)
 }
 
 // Get the next word from the string
-char *get_next_word(char *s, char c)
+char *get_next_word(char *s, char c, int *cursor)
 {
-    static int cursor = 0;
     char *next_word;
     int len = 0;
     int i = 0;
 
-    while (s[cursor] == c)
-        cursor++;
-    while (s[cursor + len] != c && s[cursor + len])
+    while (s[*cursor] == c)
+        (*cursor)++;
+    while (s[*cursor + len] != c && s[*cursor + len])
         len++;
     next_word = malloc((len + 1) * sizeof(char));
     if (!next_word)
         return NULL;
-    while (s[cursor] != c && s[cursor])
-        next_word[i++] = s[cursor++];
+    while (s[*cursor] != c && s[*cursor])
+        next_word[i++] = s[(*cursor)++];
     next_word[i] = '\0';
     return next_word;
 }

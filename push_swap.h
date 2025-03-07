@@ -6,7 +6,7 @@
 /*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:10:05 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/07 08:25:06 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:11:30 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,18 @@ typedef struct s_stack
 void error_exit(void);
 void free_stack(t_stack **stack);
 void free_errors(t_stack **a);
+
+int error_duplicate(t_stack *a, int n);
+int error_syntax(char *str_n);
+
+
+int find_median(t_stack *stack);
+int *stack_to_array(t_stack *stack);
+void sort_array(int *array, int length);
+
+
+
+
 
 // Stack operations
 void sa_sb(t_stack **stack, char id);
@@ -68,11 +80,15 @@ void set_target_b(t_stack *a, t_stack *b);
 void cost_analysis_b(t_stack *a, t_stack *b);
 void set_cheapest(t_stack *stack);
 t_stack *get_cheapest(t_stack *stack);
-void move_to_top(t_stack **stack, t_stack *target);
+void move_to_top(t_stack **stack, t_stack *target, char stack_name);
 
 // Input parsing
 char **split(char *s, char c);
 long atoi_v2(char *av);
 void populate_stack_a(t_stack **a, char **av, int start_index);
+
+
+char *get_next_word(char *s, char c, int *cursor);
+int count_words(char *s, char c);
 
 #endif

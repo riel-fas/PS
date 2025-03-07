@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riel-fas <riel-fas@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: riel-fas <riel-fas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:49:04 by riel-fas          #+#    #+#             */
-/*   Updated: 2025/03/07 12:54:13 by riel-fas         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:03:00 by riel-fas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,18 @@ void rra_rrb(t_stack **stack, char id)
         write(1, "rra\n", 4);
     else if (id == 'b')
         write(1, "rrb\n", 4);
+}
+
+void rr(t_stack **a, t_stack **b)
+{
+    ra_rb(a, 'c'); // Use 'c' to not print individual operations
+    ra_rb(b, 'c');
+    write(1, "rr\n", 3);
+}
+
+void rrr(t_stack **a, t_stack **b)
+{
+    rra_rrb(a, 'c'); // Use 'c' to not print individual operations
+    rra_rrb(b, 'c');
+    write(1, "rrr\n", 4);
 }
