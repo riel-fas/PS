@@ -12,76 +12,72 @@
 
 #include "push_swap.h"
 
-static t_stack	*find_last_node(t_stack *stack)
+// Calculate the length of the stack
+int stack_length(t_stack *stack)
 {
-	if (!stack)
-		return (NULL);
-	while (stack->next) //Loop until the end of the stack is reached
-		stack = stack->next;
-	return (stack);
+    int count = 0;
+    while (stack)
+    {
+        count++;
+        stack = stack->next;
+    }
+    return count;
 }
 
-static void check_duplicates(t_stack *stack)
+// Find the last node in the stack
+t_stack *find_last(t_stack *stack)
 {
-	t_stack *current;
-	t_stack *runner;
-
-	current = stack;
-	while (current)
-	{
-		runner = current->next;
-		while (runner)
-		{
-			if (current->nbr == runner->nbr)
-						error_exit ();
-			runner = runner->next;
-		}
-		current = current->next;
-	}
+    if (!stack)
+        return NULL;
+    while (stack->next)
+        stack = stack->next;
+    return stack;
 }
 
-static void	append_to_stack_A(t_stack **stack, int nb)
+// Check if the stack is sorted
+bool stack_sorted(t_stack *stack)
 {
-	t_stack	*node;
-	t_stack	*last_node;
-
-	if (!stack)
-		return ;
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->nbr = nb;
- 	if (!*stack) //if stack a is empty
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else //if theres already nbrs in the stack a its finds the last node then set prev to it and next to null
-	{
-		last_node = find_last_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-	}
+    if (!stack)
+        return true;
+    while (stack->next)
+    {
+        if (stack->nbr > stack->next->nbr)
+            return false;
+        stack = stack->next;
+    }
+    return true;
 }
 
-void populate_stack_A(t_stack **A, char **av, int start_index)
+// Find the node with the smallest value
+t_stack *find_min(t_stack *stack)
 {
-	long nb;
-	int x;
+    long min = LONG_MAX;
+    t_stack *min_node = NULL;
+    while (stack)
+    {
+        if (stack->nbr < min)
+        {
+            min = stack->nbr;
+            min_node = stack;
+        }
+        stack = stack->next;
+    }
+    return min_node;
+}
 
-	x = start_index;
-	while (av[x])
-	{
-		nb = atoi_v2(av[x]);
-		if (nb > INT_MAX || nb < INT_MIN) // Check for integer overflow
-		{
-			free_stack(A);
-			error_exit ();
-		}
-		append_to_stack_A(A, (int)nb);
-		x++;
-	}
-    // After populating, check for duplicates
-	check_duplicates(*A);
+// Find the node with the largest value
+t_stack *find_max(t_stack *stack)
+{
+    long max = LONG_MIN;
+    t_stack *max_node = NULL;
+    while (stack)
+    {
+        if (stack->nbr > max)
+        {
+            max = stack->nbr;
+            max_node = stack;
+        }
+        stack = stack->next;
+    }
+    return max_node;
 }
