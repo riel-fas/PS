@@ -12,6 +12,55 @@
 
 #include "push_swap.h"
 
+// void sort_three(t_stack **a)
+// {
+//     if (!a || !*a || !(*a)->next || !(*a)->next->next)
+//         return; // Ensure stack A has exactly 3 nodes
+
+//     t_stack *first = *a;
+//     t_stack *second = first->next;
+//     t_stack *third = second->next;
+
+//     // Case 1: [1, 2, 3] (already sorted)
+//     if (first->nbr < second->nbr && second->nbr < third->nbr)
+//         return;
+//     // Case 2: [1, 3, 2] → Swap the last two elements
+//     if (first->nbr < second->nbr && second->nbr > third->nbr && first->nbr < third->nbr)
+//     {
+//         rra_rrb(a, 'a'); // Reverse rotate to bring the last element to the top
+//         sa_sb(a, 'a');   // Swap the first two elements
+//         return;
+//     }
+//     // Case 3: [2, 1, 3] → Swap the first two elements
+//     if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr < third->nbr)
+//     {
+//         sa_sb(a, 'a');
+//         return;
+//     }
+//     // Case 4: [2, 3, 1] → Rotate to bring the smallest element to the top
+//     if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr > third->nbr)
+//     {
+//         rra_rrb(a, 'a');
+//         return;
+//     }
+//     // Case 5: [3, 1, 2] → Rotate to bring the smallest element to the top
+//     if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr > third->nbr)
+//     {
+//         ra_rb(a, 'a');
+//         return;
+//     }
+//     // Case 6: [3, 2, 1] → Swap the first two elements and then rotate
+//     if (first->nbr > second->nbr && second->nbr > third->nbr)
+//     {
+//         sa_sb(a, 'a');
+//         rra_rrb(a, 'a');
+//         return;
+//     }
+// }
+
+
+
+
 void sort_three(t_stack **a)
 {
     if (!a || !*a || !(*a)->next || !(*a)->next->next)
@@ -24,6 +73,7 @@ void sort_three(t_stack **a)
     // Case 1: [1, 2, 3] (already sorted)
     if (first->nbr < second->nbr && second->nbr < third->nbr)
         return;
+
     // Case 2: [1, 3, 2] → Swap the last two elements
     if (first->nbr < second->nbr && second->nbr > third->nbr && first->nbr < third->nbr)
     {
@@ -31,24 +81,28 @@ void sort_three(t_stack **a)
         sa_sb(a, 'a');   // Swap the first two elements
         return;
     }
+
     // Case 3: [2, 1, 3] → Swap the first two elements
     if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr < third->nbr)
     {
         sa_sb(a, 'a');
         return;
     }
+
     // Case 4: [2, 3, 1] → Rotate to bring the smallest element to the top
     if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr > third->nbr)
     {
         rra_rrb(a, 'a');
         return;
     }
+
     // Case 5: [3, 1, 2] → Rotate to bring the smallest element to the top
     if (first->nbr > second->nbr && second->nbr < third->nbr && first->nbr > third->nbr)
     {
         ra_rb(a, 'a');
         return;
     }
+
     // Case 6: [3, 2, 1] → Swap the first two elements and then rotate
     if (first->nbr > second->nbr && second->nbr > third->nbr)
     {
@@ -57,7 +111,6 @@ void sort_three(t_stack **a)
         return;
     }
 }
-
 
 t_stack *find_largest(t_stack *stack)
 {
